@@ -1,0 +1,131 @@
+<!-- Loading bar -->
+<fuse-loading-bar></fuse-loading-bar>
+
+<!-- Navigation -->
+<fuse-vertical-navigation
+    class="dark bg-indigo-800 text-white print:hidden"
+    [mode]="isScreenSmall ? 'over' : 'side'"
+    [name]="'mainNavigation'"
+    [navigation]="navigation.futuristic"
+    [opened]="!isScreenSmall">
+    <!-- Navigation header hook -->
+    <ng-container fuseVerticalNavigationHeader>
+        <!-- Logo -->
+        <div class="flex items-center info2" >
+            <img
+                class="w-30"
+                src="assets/icons/logo 1.png" style="position:relative; left:25% ;">
+        </div>
+    </ng-container>
+
+        <ng-container fuseVerticalNavigationContent>
+          <div  class="m-cont">  
+
+<div class="m-conta-1">
+
+<div style="display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;"> 
+
+<img   
+src="assets/icons/cal.png" style="height: 16px;
+width: 16px;
+left: 2px;
+top: 2px;
+border-radius: 0px;
+"/>
+
+<div style="width: 132px;height: 26px;
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 26px;
+color: #FFFFFF;
+flex: none;
+order: 1;
+flex-grow: 0;margin-left: 12px;">Finance & Account</div>
+
+
+<img   
+src="assets/icons/down_arrow.png" style="height: 6.5px;
+    width: 9.5px;
+    /* left: 3.75px; */
+    top: -0.75px;
+    border-radius: 0px;
+    /* position: relative; */
+    left: 181px;
+    position: relative;
+
+"/>
+
+
+
+
+    
+</div>
+
+</div>
+
+
+ 
+ </div>
+        </ng-container>
+    
+
+ 
+</fuse-vertical-navigation>
+
+<!-- Wrapper -->
+<div class="flex flex-col flex-auto w-full min-w-0">
+     
+    <!-- Header -->
+    <div  style="position:fixed;top:0px; background: #E3F2F1 !important;
+box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06);" class=" flex flex-0 items-center w-full h-16 px-4 md:px-6 z-49 shadow dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden">
+        <!-- Navigation toggle button -->
+       <!--  <button
+            class="mr-2"
+            mat-icon-button
+            (click)="toggleNavigation('mainNavigation')">
+            <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
+        </button> -->
+        <div class="flex items-center " style="
+
+line-height: 21px;
+text-align: justify;
+color: #232323;"> <span style="font-weight:bold;font-size: 12px;">System portal: <span style="font-size: 10px;">Finance & Account > Account</span></span></div>
+        <!-- Components -->
+        <div class="flex items-center "  [ngStyle]="leftNavActive?{'right': '300px'} : {'right': '0px'}" style="position:absolute; ">
+      
+            <languages></languages>
+            <fuse-fullscreen class="hidden md:block"></fuse-fullscreen>
+            <search [appearance]="'bar'"></search>
+            <shortcuts></shortcuts>
+            <messages></messages>
+            <notifications></notifications>
+            <button
+                class="lg:hidden"
+                mat-icon-button
+                (click)="quickChat.toggle()">
+                <mat-icon [svgIcon]="'heroicons_outline:chat-alt-2'"></mat-icon>
+            </button>
+
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="flex flex-col flex-auto" style="margin-bottom:20px;margin-top:30px;">
+        <!-- *ngIf="true" hack is required here for router-outlet to work correctly.
+             Otherwise, layout changes won't be registered and the view won't be updated! -->
+        <router-outlet *ngIf="true"></router-outlet>
+    </div>
+
+    <!-- Footer -->
+    <div class="my-fixed flex flex-0 items-center justify-start w-full h-14 px-4 md:px-6 z-49 border-t bg-card dark:bg-transparent print:hidden">
+        <span class="font-medium text-secondary">Fuse &copy; {{currentYear}}</span>
+    </div>
+
+</div>
+
+<!-- Quick chat -->
+<quick-chat #quickChat="quickChat" style="display:none"></quick-chat>
